@@ -1,0 +1,18 @@
+<doctype html>
+<html>
+  <head>
+    <title>Crystalshards</title>
+  </head>
+
+  <body>
+    <h1>Crystalshards</h1>
+
+    <ul>
+      <% crystal_repos.each do |repo| %>
+        <li>
+          <a href="<%= repo.html_url %>"><%= repo.name %></a> - <%= repo.description %>
+        </li>
+      <% end %>
+    </ul>
+  </body>
+</html>
