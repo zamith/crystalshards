@@ -19,3 +19,8 @@ get "/" do |context|
   context.response.content_type = "text/html"
   Views::Index.new crystal_repos
 end
+
+get "/css/index.css" do |context|
+  context.response.content_type = "text/css"
+  File.read "#{__DIR__}/dist/css/index.css"
+end
