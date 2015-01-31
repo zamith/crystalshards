@@ -6,5 +6,5 @@ gulp.task('sass', function () {
     .on('error', function (err) {
       console.error('Error!', err.message);
     })
-    .pipe(gulp.dest('dist/css'));
+    .pipe(gulp.dest('public/css'));
 });
