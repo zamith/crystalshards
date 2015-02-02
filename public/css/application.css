@@ -39,8 +39,9 @@ a {
   height: 300px;
   text-align: center; }
   .main-info .title {
-    font-size: 4rem;
-    padding: 50px 0; }
+    font-size: 5rem;
+    font-weight: 100;
+    padding: 45px 0; }
   .main-info .more-info {
     font-size: 1.5rem; }
   .main-info .repo-count {
