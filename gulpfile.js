@@ -1,10 +1,14 @@
-var gulp = require('gulp');
-var sass = require('gulp-ruby-sass');
+var gulp = require('gulp'),
+    sass = require('gulp-sass'),
+    neat = require('node-neat').includePaths;
 
 gulp.task('sass', function () {
-  return sass('assets/stylesheets')
-    .on('error', function (err) {
-      console.error('Error!', err.message);
-    })
+  return gulp
+    .src('assets/stylesheets/**/*.sass')
+    .pipe(sass({ includePaths: ['styles'].concat(neat), indentedSyntax: true }))
     .pipe(gulp.dest('public/css'));
+});
+
+gulp.task('default', function() {
+  gulp.start('sass');
 });

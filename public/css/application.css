@@ -1,0 +1,62 @@
+/* Neat 1.7.0
+ * http://neat.bourbon.io
+ * Copyright 2012-2014 thoughtbot, inc.
+ * MIT License */
+html {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }
+
+*, *:before, *:after {
+  -webkit-box-sizing: inherit;
+  -moz-box-sizing: inherit;
+  box-sizing: inherit; }
+
+*, *:before, *:after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0; }
+
+body {
+  font-family: "Helvetica Neue"; }
+
+a {
+  color: #009309; }
+
+.container {
+  max-width: 68em;
+  margin-left: auto;
+  margin-right: auto; }
+  .container:after {
+    content: "";
+    display: table;
+    clear: both; }
+
+.main-info {
+  background-color: #36A1B6;
+  color: #FFF;
+  font-weight: 100;
+  height: 300px;
+  text-align: center; }
+  .main-info .title {
+    font-size: 4rem;
+    padding: 50px 0; }
+  .main-info .more-info {
+    font-size: 1.5rem; }
+  .main-info .repo-count {
+    font-weight: bold; }
+
+.repos {
+  background-color: #E6D3A3;
+  color: #5B5B5B;
+  padding: 50px; }
+  .repos .repo {
+    list-style: none;
+    margin-bottom: 15px; }
+    .repos .repo a {
+      color: #333;
+      font-size: 1.2rem;
+      font-weight: bold;
+      text-decoration: none; }
+      .repos .repo a:hover {
+        text-decoration: underline; }

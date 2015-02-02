@@ -1,0 +1,50 @@
+*,
+*:before,
+*:after
+  box-sizing: border-box
+  margin: 0
+  padding: 0
+
+body
+  font-family: "Helvetica Neue"
+
+a
+  color: $color-link
+
+.container
+  @include outer-container
+
+.main-info
+  background-color: $color-main
+  color: $text-color-light
+  font-weight: 100
+  height: $main-info-height
+  text-align: center
+
+  .title
+    font-size: $font-size-huge
+    padding: 50px 0
+
+  .more-info
+    font-size: $font-size-very-big
+
+  .repo-count
+    font-weight: bold
+
+.repos
+  background-color: $color-secondary
+  color: $text-color-dark
+  padding: 50px
+
+  .repo
+    list-style: none
+    margin-bottom: 15px
+
+    a
+      color: $color-black
+      font-size: $font-size-big
+      font-weight: bold
+      text-decoration: none
+
+      &:hover
+        text-decoration: underline

@@ -1,21 +1,29 @@
-<doctype html>
+<!DOCTYPE html>
 <html>
   <head>
     <title>Crystalshards</title>
-    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/css/application.css">
   </head>
 
   <body>
-    <h1>Crystalshards</h1>
+    <section class="main-info">
+      <div class="container">
+        <h1 class="title">Crystalshards</h1>
 
-    <p>There are a total of <%= repos_count %> shards</p>
+        <p class="more-info">There are a total of <span class="repo-count"><%= repos_count %></span> shards</p>
+      </div>
+    </section>
 
-    <ul>
-      <% crystal_repos.each do |repo| %>
-        <li>
-          <a href="<%= repo.html_url %>"><%= repo.name %></a> - <%= repo.description %>
-        </li>
-      <% end %>
-    </ul>
+    <section class="repos">
+      <div class="container">
+        <ul>
+          <% crystal_repos.each do |repo| %>
+            <li class="repo">
+              <a href="<%= repo.html_url %>"><%= repo.name %></a> - <%= repo.description %>
+            </li>
+          <% end %>
+        </ul>
+    </div>
+    </section>
   </body>
 </html>
