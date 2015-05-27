@@ -19,7 +19,7 @@
         <ul>
           <% crystal_repos.each do |repo| %>
             <li class="repo">
-              <a href="<%= repo.html_url %>"><%= repo.name %></a> - <%= repo.description %>
+            <a href="<%= repo.html_url %>"><%= repo.name %></a> (<%= repo.watchers_count %> stars) - <%= repo.description %>
             </li>
           <% end %>
         </ul>
