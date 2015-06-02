@@ -2,6 +2,7 @@ require "frank"
 require "http/client"
 require "./views/index"
 require "./models/github_repos"
+SORT_OPTIONS = {"stars", "updated", "forks"}
 
 def headers
   headers = HTTP::Headers.new
@@ -17,7 +18,7 @@ end
 
 def fetch_sort(context)
   sort = context.params["sort"]? || "stars"
-  sort = "stars" unless {"stars", "updated", "forks"}.includes?(sort)
+  sort = "stars" unless SORT_OPTIONS.includes?(sort)
   sort
 end
 

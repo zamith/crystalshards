@@ -18,7 +18,7 @@
       <div class="container">
         <div class="sorting">
           Sort by:
-            <% {"stars", "updated", "forks"}.each_with_index do |target_sort, index| %>
+            <% SORT_OPTIONS.each_with_index do |target_sort, index| %>
               <% if index > 0 %> | <% end %>
               <% if sort == target_sort %>
                 <%= target_sort %>
