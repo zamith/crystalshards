@@ -16,10 +16,34 @@
 
     <section class="repos">
       <div class="container">
+        <div class="sorting">
+          Sort by:
+            <% SORT_OPTIONS.each_with_index do |target_sort, index| %>
+              <% if index > 0 %> | <% end %>
+              <% if sort == target_sort %>
+                <%= target_sort %>
+              <% else %>
+                <a href="?sort=<%= target_sort %>"><%= target_sort %></a>
+              <% end %>
+            <% end %>
+        </div>
+
         <ul>
           <% crystal_repos.each do |repo| %>
             <li class="repo">
-            <a href="<%= repo.html_url %>"><%= repo.name %></a> (<%= repo.watchers_count %> stars) - <%= repo.description %>
+            <a href="<%= repo.html_url %>"><%= repo.name %></a>
+
+            <% if sort == "stars" %>
+              (<%= repo.watchers_count %> stars)
+            <% elsif sort == "updated" %>
+              (<%= human_time(repo.pushed_at) %>)
+            <% elsif sort == "forks" %>
+              (<%= repo.forks %> forks)
+            <% end %>
+
+            <% unless repo.description.try &.strip.empty? %>
+             - <%= repo.description %>
+            <% end %>
             </li>
           <% end %>
         </ul>
