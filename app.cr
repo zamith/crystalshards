@@ -33,7 +33,8 @@ def fetch_sort(context)
 end
 
 def fetch_filter(context)
-  param = context.params["filter"]? || ""
+  filter = context.params["filter"]? || ""
+  filter.strip
 end
 
 get "/" do |context|
