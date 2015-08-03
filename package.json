@@ -6,9 +6,10 @@
     "url": "git://github.com/zamith/crystalshards.git"
   },
   "devDependencies": {
-    "gulp": "~3.8.10",
-    "gulp-sass": "^1.3.2",
+    "gulp": "~3.9.0",
+    "gulp-sass": "^2.0.4",
     "node-bourbon": "^1.2.3",
-    "node-neat": "^1.4.2"
+    "node-neat": "^1.4.2",
+    "node-sass": "^3.2.0"
   }
 }
