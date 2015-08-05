@@ -12,7 +12,13 @@
       <div class="container">
         <h1 class="title">Crystalshards</h1>
 
-        <p class="more-info">There are a total of <span class="repo-count"><%= repos_count %></span> shards</p>
+        <p class="more-info">
+          <% if filter.empty? %>
+            There are a total of <span class="repo-count"><%= repos_count %></span> shards
+          <% else %>
+            There are a total of <span class="repo-count"><%= repos_count %></span> shards that match your query
+          <% end %>
+        </p>
       </div>
     </section>
 
