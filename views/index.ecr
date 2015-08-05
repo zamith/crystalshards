@@ -4,9 +4,10 @@
     <meta charset="utf-8" />
     <title>Crystalshards</title>
     <link rel="stylesheet" href="/css/application.css">
+    <script type="text/javascript" src="/js/application.js" ></script>
   </head>
 
-  <body onload="document.forms['search'].elements['search'].select();">
+  <body>
     <section class="main-info">
       <div class="container">
         <h1 class="title">Crystalshards</h1>
@@ -20,16 +21,16 @@
         <div class="nav">
           <form id="search" method="get" action="/">
             Sort by:
-              <select name="sort" onchange="this.form.submit()">
+              <select id="sort" name="sort">
                 <% SORT_OPTIONS.each_with_index do |target_sort, index| %>
-                <option <%= "selected" if sort == target_sort %>>
-                   <%= target_sort %>
-                </option>
+                  <option <%= "selected" if sort == target_sort %>>
+                     <%= target_sort %>
+                  </option>
                 <% end %>
               </select>
 
             Filter:
-              <input type="search" id="search" name="filter" value="<%= filter %>" maxlength="20"/>
+              <input type="search" id="filter" name="filter" maxlength="20" autofocus/>
           </form>
         </div>
 

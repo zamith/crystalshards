@@ -3,7 +3,7 @@ require "ecr/macros"
 class Views::Index
   getter :crystal_repos, :repos_count, :sort, :filter
 
-  def initialize(repos_data, sort, filter = nil)
+  def initialize(repos_data, sort, filter)
     @repos_count = repos_data.total_count
     @crystal_repos = repos_data.items
     @sort = sort
