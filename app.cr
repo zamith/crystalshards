@@ -19,15 +19,29 @@ def crystal_repos(sort)
   GithubRepos.from_json(response.body)
 end
 
+def filter(repos, filter)
+  filtered = repos.dup
+  filtered.items.select! { |item| item.name.includes? filter }
+  filtered.total_count = filtered.items.size
+  filtered
+end
+
 def fetch_sort(context)
   sort = context.params["sort"]? || "stars"
   sort = "stars" unless SORT_OPTIONS.includes?(sort)
   sort
 end
 
+def fetch_filter(context)
+  filter = context.params["filter"]? || ""
+  filter.strip
+end
+
 get "/" do |context|
   sort = fetch_sort(context)
+  filter = fetch_filter(context)
   context.response.content_type = "text/html"
   repos = REPOS_CACHE.fetch(sort) { crystal_repos(sort) }
-  Views::Index.new repos, sort
+  repos = filter(repos, filter) unless filter.empty?
+  Views::Index.new repos, sort, filter
 end
