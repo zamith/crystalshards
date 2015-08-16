@@ -21,7 +21,7 @@ end
 
 def filter(repos, filter)
   filtered = repos.dup
-  filtered.items.select! { |item| item.name.includes? filter }
+  filtered.items.select! { |item| matches_filter?(item, filter) }
   filtered.total_count = filtered.items.size
   filtered
 end
@@ -35,6 +35,11 @@ end
 def fetch_filter(context)
   filter = context.params["filter"]? || ""
   filter.strip
+end
+
+private def matches_filter?(item: GithubRepo, filter: String)
+  item.name.includes?(filter) ||
+    (item.description && item.description.not_nil!.includes?(filter))
 end
 
 get "/" do |context|
