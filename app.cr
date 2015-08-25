@@ -33,13 +33,12 @@ def fetch_sort(context)
 end
 
 def fetch_filter(context)
-  filter = context.params["filter"]? || ""
-  filter.strip
+  context.params["filter"]?.try(&.strip.downcase) || ""
 end
 
 private def matches_filter?(item: GithubRepo, filter: String)
-  item.name.includes?(filter) ||
-    (item.description && item.description.not_nil!.includes?(filter))
+  item.name.downcase.includes?(filter) ||
+    item.description.try(&.downcase.includes? filter)
 end
 
 get "/" do |context|
