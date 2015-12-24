@@ -1,4 +1,4 @@
-require "frank"
+require "kemal"
 require "http/client"
 require "./views/index"
 require "./models/github_repos"
@@ -27,24 +27,24 @@ def filter(repos, filter)
 end
 
 def fetch_sort(context)
-  sort = context.params["sort"]? || "stars"
+  sort = context.params["sort"]?.try(&.to_s) || "stars"
   sort = "stars" unless SORT_OPTIONS.includes?(sort)
   sort
 end
 
-def fetch_filter(context)
-  context.params["filter"]?.try(&.strip.downcase) || ""
+def fetch_filter(env)
+  env.params["filter"]?.try(&.to_s.strip.downcase) || ""
 end
 
-private def matches_filter?(item: GithubRepo, filter: String)
+private def matches_filter?(item : GithubRepo, filter : String)
   item.name.downcase.includes?(filter) ||
     item.description.try(&.downcase.includes? filter)
 end
 
-get "/" do |context|
-  sort = fetch_sort(context)
-  filter = fetch_filter(context)
-  context.response.content_type = "text/html"
+get "/" do |env|
+  sort = fetch_sort(env)
+  filter = fetch_filter(env)
+  env.content_type = "text/html"
   repos = REPOS_CACHE.fetch(sort) { crystal_repos(sort) }
   repos = filter(repos, filter) unless filter.empty?
   Views::Index.new repos, sort, filter
