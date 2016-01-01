@@ -1,6 +1,6 @@
 # Crystalshards
 
-A shard is what we call a crystal libraries, and this is the website that lists
+A shard is what we call a crystal library, and this is the website that lists
 them all.
 
 # Deploying to Heroku
