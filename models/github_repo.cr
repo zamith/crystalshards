@@ -1,4 +1,5 @@
 require "json"
+require "html"
 
 class GithubRepo
   JSON.mapping({
@@ -11,9 +12,25 @@ class GithubRepo
     forks: { type: Int32 },
   })
 
+  def name
+    HTML.escape @name
+  end
+
+  def html_url
+    HTML.escape @html_url
+  end
+
+  def description
+    @description ? HTML.escape @description.not_nil! : nil
+  end
+
   struct Owner
     JSON.mapping({
       login: String,
     })
+
+    def login
+      HTML.escape @login
+    end
   end
 end
