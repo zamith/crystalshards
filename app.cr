@@ -1,5 +1,6 @@
 require "kemal"
 require "http/client"
+require "emoji"
 require "./views/index"
 require "./models/github_repos"
 require "./models/time_cache"
@@ -44,7 +45,7 @@ end
 get "/" do |env|
   sort = fetch_sort(env)
   filter = fetch_filter(env)
-  env.content_type = "text/html"
+  env.response.content_type = "text/html"
   repos = REPOS_CACHE.fetch(sort) { crystal_repos(sort) }
   repos = filter(repos, filter) unless filter.empty?
   Views::Index.new repos, sort, filter

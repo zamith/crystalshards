@@ -21,7 +21,11 @@ class GithubRepo
   end
 
   def description
-    @description ? HTML.escape @description.not_nil! : nil
+    if description = @description
+      HTML.escape(Emoji.emojize(description))
+    else
+      nil
+    end
   end
 
   struct Owner

@@ -1,6 +1,14 @@
 version: 1.0
 shards:
+  emoji:
+    github: veelenga/emoji.cr
+    version: 0.1.0
+
   kemal:
     github: sdogruyol/kemal
-    version: 0.5.0
+    version: 0.8.0
+
+  radix:
+    github: luislavena/radix
+    version: 0.1.0
 
