@@ -7,7 +7,10 @@ class GithubRepo
     html_url: { type: String },
     description: { type: String, nilable: true },
     watchers_count: { type: Int32 },
+    stargazers_count: { type: Int32 },
+    forks_count: {type: Int32 },
     owner: Owner,
+    updated_at: { type: Time, converter: Time::Format.new("%FT%TZ") },
     pushed_at: { type: Time, converter: Time::Format.new("%FT%TZ") },
     forks: { type: Int32 },
   })
