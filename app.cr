@@ -45,15 +45,12 @@ end
 
 def sort(repos, sort)
   sorted = repos.dup
-  if sort == "stars"
+  case sort
+  when "stars"
     sorted.items.sort! { |a, b| b.stargazers_count <=> a.stargazers_count  }
-  end
-
-  if sort == "updated"
+  when "updated"
     sorted.items.sort! { |a, b| b.updated_at <=> a.updated_at  }
-  end
-
-  if sort == "forks"
+  when "forks"
     sorted.items.sort! { |a, b| b.forks_count <=> a.forks_count  }
   end
   sorted
