@@ -28,5 +28,5 @@ class Views::Index
     end
   end
 
-  ecr_file "./views/index.ecr"
+  ECR.def_to_s "./views/index.ecr"
 end

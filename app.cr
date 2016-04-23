@@ -50,3 +50,5 @@ get "/" do |env|
   repos = filter(repos, filter) unless filter.empty?
   Views::Index.new repos, sort, filter
 end
+
+Kemal.run
