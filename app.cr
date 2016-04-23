@@ -27,14 +27,14 @@ def filter(repos, filter)
   filtered
 end
 
-def fetch_sort(context)
-  sort = context.params["sort"]?.try(&.to_s) || "stars"
+def fetch_sort(env)
+  sort = env.params.query["sort"]?.try(&.to_s) || "stars"
   sort = "stars" unless SORT_OPTIONS.includes?(sort)
   sort
 end
 
 def fetch_filter(env)
-  env.params["filter"]?.try(&.to_s.strip.downcase) || ""
+  env.params.query["filter"]?.try(&.to_s.strip.downcase) || ""
 end
 
 private def matches_filter?(item : GithubRepo, filter : String)
