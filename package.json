@@ -10,6 +10,6 @@
     "gulp-sass": "^2.0.4",
     "node-bourbon": "^1.2.3",
     "node-neat": "^1.4.2",
-    "node-sass": "^3.2.0"
+    "node-sass": "^4.14.1"
   }
 }
